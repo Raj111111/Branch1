@@ -1,0 +1,13 @@
+<apex:page controller="Task_on_Account">
+<apex:form >
+    <apex:pageBlock >
+    	<apex:pageBlockButtons location="top">
+         <apex:commandButton value="click" action="{!save}"/>
+             {!count}  
+            {!name}<br/>
+            
+              {!s}
+            </apex:pageBlockButtons>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

@@ -1,0 +1,19 @@
+<apex:page controller="sobjectDescribe">
+    <!--<apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection >
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="object List"> <br/>
+                        <apex:selectList size="1">
+                            <apex:selectOptions value="{!selectopp}"/> 
+                            <apex:actionSupport event="onchange" action="{!details}" reRender="changed"/>
+                        </apex:selectList>
+                    </apex:outputLabel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value= "{!objdescription}" id="changed"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>-->
+</apex:page>

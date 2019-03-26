@@ -1,0 +1,13 @@
+<apex:page controller="SearchButton">
+    <apex:form >
+        <apex:inputText value="{!keyword}"/>
+        <apex:commandButton value="GO" action="{!go}"/>
+        	<apex:pageBlock title="RESULTS" mode="Edit" >
+                <apex:pageBlockTable value="{!accts}" var="a">
+                    <apex:column value="{!a.name}" />
+                    <apex:column value="{!a.industry}"/>
+                    <apex:column value="{!a.id}"/>  
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+    </apex:form>
+</apex:page>

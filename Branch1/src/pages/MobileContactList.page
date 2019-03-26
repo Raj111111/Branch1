@@ -1,0 +1,17 @@
+<apex:page standardController="contact" recordSetVar="contacts">
+ 
+ <head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"/>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ </head>
+ 
+<apex:form >
+             <apex:repeat var="c" value="{!contacts}">
+                <ul class="list-group">
+                  <li class="list-group-item">{!c.Name}</li>
+                </ul>
+            </apex:repeat>
+
+</apex:form>
+</apex:page>

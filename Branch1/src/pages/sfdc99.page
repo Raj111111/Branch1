@@ -1,0 +1,65 @@
+<apex:page standardcontroller="contact" >
+
+<!---page Heade-->
+
+    <apex:sectionHeader title="section Header" subtitle="SFDC99"/>
+    <apex:image value="http://www.w3schools.com/html/html5.gif" styleClass="logo"/>
+
+<!--Begin Form-->
+
+ <apex:form >
+  <apex:pageBlock title="pageblock Title" mode="edit">
+   <apex:outputPanel styleClass="styleclass">
+    Here i am writing <br/>
+     output panel. Attaching scr file through iframe.
+    <apex:iframe width="320" height="180" src="https://www.youtube.com/embed/lsSC2vx7zFQ" />     
+  </apex:outputPanel>
+  
+   <!---Fields--->
+    
+     <apex:pageBlockSection title=" section" columns="2" showHeader="true">
+     
+       <apex:inputField value="{!contact.FirstName}" required="true"/> 
+       <apex:inputField value="{!contact.LeadSource}"/> 
+       <apex:inputField value="{!contact.Insurance_Eligible__c}"/> 
+       <apex:inputField value="{!contact.Email}"/>  
+        
+     <apex:pageblockSectionItem >
+        <apex:outputLabel >referer</apex:outputLabel>
+                  
+     </apex:pageblockSectionItem>  
+     </apex:pageBlockSection>    
+  
+  
+<!--Buttons & link--->
+   <apex:pageBlockButtons location="bottom">
+     <apex:commandButton value="save" action="{!save}"/>
+     <apex:commandLink value="back to page" target="https://c.na16.visual.force.com/apex/sfdc99"/>     
+     </apex:pageBlockButtons>
+   </apex:pageBlock>     
+ </apex:form>
+ 
+<!---Styles--css-->
+
+<style>
+    .logo{
+        float: right;
+        width: 60px;
+         margin: -65px 20px 0 0;
+               
+    } 
+    
+    .video{
+        float: right ;
+        } 
+        
+     .styleclass{
+     
+    color: red;
+     font-size: 18px;
+      font-family: courier;
+       float: left;
+        width: 100%;  
+} 
+</style>     
+ </apex:page>

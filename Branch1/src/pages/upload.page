@@ -1,0 +1,15 @@
+<apex:page standardcontroller="Position__c" extensions="UploadController">
+<Apex:form >
+<apex:messages />
+ <apex:pageBlock title="The File Has to Upload Below">
+  <apex:pageblocksection >
+   <Apex:pageblockSectionItem >
+   
+     <apex:inputFile value="{!filebody}" filename="{!fileName}" id="file"/>
+     <Apex:commandButton value="Save File" action="{!Upload}"/>
+     
+   </Apex:pageblockSectionItem>  
+  </apex:pageblocksection>
+ </apex:pageBlock>
+ </Apex:form>
+</apex:page>

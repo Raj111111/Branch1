@@ -1,0 +1,23 @@
+<apex:page controller="paramaters" showHeader="false" title="false"> 
+  <apex:form >
+   <apex:tabPanel switchType="client" selectedTab="TabDetails" tabClass="activetab" inactiveTabClass="inactivetab">
+        <apex:tab label="TEAM">
+            <apex:pageBlock title="TEAMLIST">
+                <apex:pageBlockTable value="{!Acc}" var="t">
+                    <apex:column headerValue="Account NAME">
+                       <apex:outputPanel >
+                           <apex:outputLink value="http://google.com/search}"> 	Search Google
+					<apex:param name="q" value="{!t.name}"/>
+				</apex:outputLink>
+                           <!-- <apex:commandLink action="{!go}"> {!t.phone} <apex:param name="id" value="{!t.id}"/>
+                                
+                            </apex:commandLink>-->
+                       </apex:outputPanel>
+                    </apex:column>
+                </apex:pageBlockTable>
+                
+            </apex:pageBlock>
+        </apex:tab>
+   </apex:tabPanel>
+  </apex:form>
+</apex:page>

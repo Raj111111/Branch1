@@ -1,0 +1,22 @@
+<apex:page standardController="Account" recordSetVar="Accounts">
+ <apex:form id="formId">
+     <apex:pageBlock title="block">
+         <apex:panelGrid columns="2">
+         <apex:selectList value="{!filterId}" size="1">
+             <apex:actionSupport event="onselect" reRender="ids"/>
+             <apex:selectOptions value="{!listviewoptions}">
+             </apex:selectOptions>  	
+         </apex:selectList>
+         </apex:panelGrid>
+         <apex:pageBlockButtons >
+         	<apex:commandButton value="save" action="{!save}" style="fontcolor : red"/>
+         </apex:pageBlockButtons>
+         <apex:pageBlockSection title="section">
+             <apex:pageblocktable value="{!accounts}" var="a" id="ids">
+             	<apex:column value="{!a.name}"/>
+                <apex:column value="{!a.phone}"/>
+             </apex:pageblocktable>
+         </apex:pageBlockSection>
+     </apex:pageBlock>
+ </apex:form>
+</apex:page>

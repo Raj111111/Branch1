@@ -1,0 +1,21 @@
+<apex:page showHeader="false" sidebar="false" standardController="Account" extensions="SearchFunctionalityHelper">
+    <apex:form >
+        <apex:pageBlock mode="edit" title="My Search over Accounts">
+            <apex:pageBlockSection columns="1">
+                
+                    <apex:inputText value="{!acctname}" label="name:"></apex:inputText>
+                     <Apex:commandbutton value="search" action="{!search}"/>     
+            </apex:pageBlockSection>       
+        </apex:pageBlock>
+        <apex:pageBlock >
+                <apex:pageBlockTable value="{!acct}" var="a" >
+                    <apex:column value="{!a.name}" />
+                    <apex:column value="{!a.id}"/>
+                    <apex:column value="{!a.industry}"/>
+                </apex:pageBlockTable>
+                <apex:outputPanel >
+           <apex:outputLink value="{!URLFOR($Action.Account.Edit, account.id)}" >Edit</apex:outputLink>
+           </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

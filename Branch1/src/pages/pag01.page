@@ -1,0 +1,19 @@
+<apex:page controller="Mycontroller" >
+   <apex:form >
+   <apex:pageBlock title="Tabs">
+    <apex:tabPanel switchType="ajax" >
+     <apex:tab label="First" labelWidth="200">
+         <apex:dataList value="{!account}" var="a">
+          <apex:commandLink value="{!link}"  id="here" onclick="{!link}">
+             <apex:outputText value="{!a.name}"/>
+            </apex:commandLink> 
+         </apex:dataList>
+     </apex:tab>
+     </apex:tabPanel>
+    </apex:pageBlock>
+   </apex:form>
+   <apex:outputPanel id="here">
+   <apex:outputText value="{!link}" >
+   </apex:outputText>
+   </apex:outputPanel>
+</apex:page>

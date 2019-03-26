@@ -1,0 +1,11 @@
+<apex:page controller="AccountHandler" docType="HTML-5.0">
+	<h1>
+       T1: {!t1}<br/>  
+    </h1>	
+	<apex:form >
+       
+	<h2>
+        Transient T2: {!t2} <br/>
+        </h2>	
+	</apex:form>
+</apex:page>

@@ -1,0 +1,23 @@
+<apex:page >
+<!--<apex:page standardController="Account" 
+          <!-- extensions="MySecondController"> 
+
+    <apex:pageMessages /><br/>
+    
+    <apex:form>
+        <apex:pageBlock title="Edit Account">
+            <apex:tabPanel>
+                <apex:tab label="Tab" labelWidth="200" title="TAbs">
+            <apex:pageBlockSection columns="2">
+                <apex:inputField value="{!Account.Name}"/>
+                <apex:repeat value="{!editableFields}" var="f">
+                    <apex:inputField value="{!Account[f]}"/>
+                </apex:repeat>
+           </apex:pageBlockSection>
+                    </apex:tab>
+                </apex:tabPanel>
+        </apex:pageBlock>
+    </apex:form>
+    
+</apex:page>-->
+    </apex:page>

@@ -1,0 +1,9 @@
+<apex:page controller="Standard_Set_Controller">
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!opportunity}" var="o">
+            <apex:column value="{!o.name}"/>
+            <apex:column value="{!o.closedate}"/>
+            
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>

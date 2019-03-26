@@ -1,0 +1,24 @@
+<apex:page standardController="Account" sidebar="false" showChat="false" showHeader="false">
+    <!--?id=001j000000Ss4zQ--->
+    <apex:pageBlock title="Hello {! $user.Firstname}"/>
+    <apex:pageBlock title="contacts" dir="left">
+        <apex:form >
+            <apex:dataTable value="{!Account.contacts}" var="c" cellpadding="4" cellspacing="5" border="5">
+                <apex:column >
+                    <apex:commandLink reRender="refersh">
+                        {!c.name}
+                        <apex:param value="{!c.id}" name="cid"/>
+                    </apex:commandLink>
+                </apex:column>
+            </apex:dataTable>
+        </apex:form>
+    </apex:pageBlock>
+    <apex:outputPanel id="refersh">
+        <apex:actionStatus startText="loading..">
+            <apex:facet name="stop">
+                <apex:detail subject="{! $currentpage.parameters.cid}" relatedList="false">
+                </apex:detail>
+            </apex:facet>
+        </apex:actionStatus>
+    </apex:outputPanel>
+</apex:page>

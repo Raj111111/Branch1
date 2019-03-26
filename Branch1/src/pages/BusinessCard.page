@@ -1,0 +1,9 @@
+<apex:page docType="html-5.0" renderAs="pdf">
+    <apex:form >
+      First Name : {!$User.FirstName}<br/>
+      Last Name  : {!$User.LastName}<br/>
+      User Email : {!$User.Email}<br/>
+      User Phone : {!$User.Phone}<br/>
+      User Title : {!$User.Title}<br/>
+    </apex:form>
+</apex:page>
