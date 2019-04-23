@@ -1,0 +1,152 @@
+[
+    [
+        "/Users/rajgottamukkula/Documents/Git Repository/LWC recepies/LWC R2/LWC R2/Hellow/force-app",
+        {
+            "state": "u",
+            "sourcePath": "/Users/rajgottamukkula/Documents/Git Repository/LWC recepies/LWC R2/LWC R2/Hellow/force-app",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 96,
+            "modifiedTime": 1556000467000,
+            "changeTime": 1556000467612,
+            "contentHash": "b28b7af69320201d1cf206ebf28373980add1451",
+            "isWorkspace": false,
+            "isArtifactRoot": true
+        }
+    ],
+    [
+        "/Users/rajgottamukkula/Documents/Git Repository/LWC recepies/LWC R2/LWC R2/Hellow/force-app/main",
+        {
+            "state": "u",
+            "sourcePath": "/Users/rajgottamukkula/Documents/Git Repository/LWC recepies/LWC R2/LWC R2/Hellow/force-app/main",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 96,
+            "modifiedTime": 1556000467000,
+            "changeTime": 1556000467616,
+            "contentHash": "7505d64a54e061b7acd54ccd58b49dc43500b635",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/rajgottamukkula/Documents/Git Repository/LWC recepies/LWC R2/LWC R2/Hellow/force-app/main/default",
+        {
+            "state": "u",
+            "sourcePath": "/Users/rajgottamukkula/Documents/Git Repository/LWC recepies/LWC R2/LWC R2/Hellow/force-app/main/default",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 128,
+            "modifiedTime": 1556000467000,
+            "changeTime": 1556000467620,
+            "contentHash": "7334b1e8716ee057f8863fce77d3933d5bd9d984",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/rajgottamukkula/Documents/Git Repository/LWC recepies/LWC R2/LWC R2/Hellow/force-app/main/default/aura",
+        {
+            "state": "u",
+            "sourcePath": "/Users/rajgottamukkula/Documents/Git Repository/LWC recepies/LWC R2/LWC R2/Hellow/force-app/main/default/aura",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 64,
+            "modifiedTime": 1555999166000,
+            "changeTime": 1555999166328,
+            "contentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/rajgottamukkula/Documents/Git Repository/LWC recepies/LWC R2/LWC R2/Hellow/force-app/main/default/lwc",
+        {
+            "state": "u",
+            "sourcePath": "/Users/rajgottamukkula/Documents/Git Repository/LWC recepies/LWC R2/LWC R2/Hellow/force-app/main/default/lwc",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 160,
+            "modifiedTime": 1556000467000,
+            "changeTime": 1556000467623,
+            "contentHash": "b420f9192370778e96238f79a1bad34c2d0fa86c",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/rajgottamukkula/Documents/Git Repository/LWC recepies/LWC R2/LWC R2/Hellow/force-app/main/default/lwc/hellow",
+        {
+            "state": "u",
+            "sourcePath": "/Users/rajgottamukkula/Documents/Git Repository/LWC recepies/LWC R2/LWC R2/Hellow/force-app/main/default/lwc/hellow",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 160,
+            "modifiedTime": 1556000467000,
+            "changeTime": 1556000467627,
+            "contentHash": "ee00e1a891cfd9f419c1cb26f01e3a77bdbf92cd",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/rajgottamukkula/Documents/Git Repository/LWC recepies/LWC R2/LWC R2/Hellow/force-app/main/default/lwc/hellow/hellow.html",
+        {
+            "state": "u",
+            "sourcePath": "/Users/rajgottamukkula/Documents/Git Repository/LWC recepies/LWC R2/LWC R2/Hellow/force-app/main/default/lwc/hellow/hellow.html",
+            "isDirectory": false,
+            "isMetadataFile": false,
+            "size": 377,
+            "modifiedTime": 1556000416498,
+            "changeTime": 1556000416498,
+            "contentHash": "3fa5d351eb16234401b67177b287251e2c72f4a3",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/rajgottamukkula/Documents/Git Repository/LWC recepies/LWC R2/LWC R2/Hellow/force-app/main/default/lwc/hellow/hellow.js",
+        {
+            "state": "u",
+            "sourcePath": "/Users/rajgottamukkula/Documents/Git Repository/LWC recepies/LWC R2/LWC R2/Hellow/force-app/main/default/lwc/hellow/hellow.js",
+            "isDirectory": false,
+            "isMetadataFile": false,
+            "size": 201,
+            "modifiedTime": 1556000327020,
+            "changeTime": 1556000327020,
+            "contentHash": "40a77a05a86ebd70819328eb2c8a419513f322ef",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/rajgottamukkula/Documents/Git Repository/LWC recepies/LWC R2/LWC R2/Hellow/force-app/main/default/lwc/hellow/hellow.js-meta.xml",
+        {
+            "state": "u",
+            "sourcePath": "/Users/rajgottamukkula/Documents/Git Repository/LWC recepies/LWC R2/LWC R2/Hellow/force-app/main/default/lwc/hellow/hellow.js-meta.xml",
+            "isDirectory": false,
+            "isMetadataFile": true,
+            "size": 372,
+            "modifiedTime": 1556000466548,
+            "changeTime": 1556000466548,
+            "contentHash": "aae6e043c2e483f3efc5e3d5dad0dff534f8f1da",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/rajgottamukkula/Documents/Git Repository/LWC recepies/LWC R2/LWC R2/Hellow",
+        {
+            "state": "u",
+            "sourcePath": "/Users/rajgottamukkula/Documents/Git Repository/LWC recepies/LWC R2/LWC R2/Hellow",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 288,
+            "modifiedTime": 1556000571000,
+            "changeTime": 1556000571465,
+            "contentHash": "482aba1731d0a586e52ba05892f68b26d69ba4fe",
+            "isWorkspace": true,
+            "isArtifactRoot": false
+        }
+    ]
+]

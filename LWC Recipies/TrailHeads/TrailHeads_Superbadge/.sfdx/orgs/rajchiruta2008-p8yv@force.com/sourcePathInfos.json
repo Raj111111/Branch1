@@ -1,0 +1,92 @@
+[
+    [
+        "/Users/rajgottamukkula/Documents/Git Repository/LWC Recipies/TrailHeads/TrailHeads_Superbadge/force-app",
+        {
+            "state": "n",
+            "sourcePath": "/Users/rajgottamukkula/Documents/Git Repository/LWC Recipies/TrailHeads/TrailHeads_Superbadge/force-app",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 96,
+            "modifiedTime": 1554437428000,
+            "changeTime": 1554437428076,
+            "contentHash": "b28b7af69320201d1cf206ebf28373980add1451",
+            "isWorkspace": false,
+            "isArtifactRoot": true
+        }
+    ],
+    [
+        "/Users/rajgottamukkula/Documents/Git Repository/LWC Recipies/TrailHeads/TrailHeads_Superbadge/force-app/main",
+        {
+            "state": "n",
+            "sourcePath": "/Users/rajgottamukkula/Documents/Git Repository/LWC Recipies/TrailHeads/TrailHeads_Superbadge/force-app/main",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 96,
+            "modifiedTime": 1554437428000,
+            "changeTime": 1554437428093,
+            "contentHash": "7505d64a54e061b7acd54ccd58b49dc43500b635",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/rajgottamukkula/Documents/Git Repository/LWC Recipies/TrailHeads/TrailHeads_Superbadge/force-app/main/default",
+        {
+            "state": "n",
+            "sourcePath": "/Users/rajgottamukkula/Documents/Git Repository/LWC Recipies/TrailHeads/TrailHeads_Superbadge/force-app/main/default",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 128,
+            "modifiedTime": 1554437428000,
+            "changeTime": 1554437428103,
+            "contentHash": "7334b1e8716ee057f8863fce77d3933d5bd9d984",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/rajgottamukkula/Documents/Git Repository/LWC Recipies/TrailHeads/TrailHeads_Superbadge/force-app/main/default/aura",
+        {
+            "state": "n",
+            "sourcePath": "/Users/rajgottamukkula/Documents/Git Repository/LWC Recipies/TrailHeads/TrailHeads_Superbadge/force-app/main/default/aura",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 64,
+            "modifiedTime": 1554437410000,
+            "changeTime": 1554437410176,
+            "contentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/rajgottamukkula/Documents/Git Repository/LWC Recipies/TrailHeads/TrailHeads_Superbadge/force-app/main/default/lwc",
+        {
+            "state": "n",
+            "sourcePath": "/Users/rajgottamukkula/Documents/Git Repository/LWC Recipies/TrailHeads/TrailHeads_Superbadge/force-app/main/default/lwc",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 128,
+            "modifiedTime": 1554437428000,
+            "changeTime": 1554437428150,
+            "contentHash": "a973ac1b5be0e216b2a2db1b82ae5ba97f4086f4",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/rajgottamukkula/Documents/Git Repository/LWC Recipies/TrailHeads/TrailHeads_Superbadge",
+        {
+            "state": "n",
+            "sourcePath": "/Users/rajgottamukkula/Documents/Git Repository/LWC Recipies/TrailHeads/TrailHeads_Superbadge",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 384,
+            "modifiedTime": 1554445428000,
+            "changeTime": 1554445428486,
+            "contentHash": "fdf4d7e9a89a39307426a9a6fbe354c2e90313c7",
+            "isWorkspace": true,
+            "isArtifactRoot": false
+        }
+    ]
+]

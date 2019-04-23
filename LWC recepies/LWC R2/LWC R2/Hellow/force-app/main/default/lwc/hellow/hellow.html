@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Hello Card" icon-name="utility:connected_apps">
+        <p class="slds-text-align_center">
+            Hello, you are typing {typeHere} !!
+        </p>
+        <lightning-input
+            value= {typeHere}
+            label = "Type"
+            onchange = {changed}
+        ></lightning-input>
+
+
+    </lightning-card>
+        
+</template>
