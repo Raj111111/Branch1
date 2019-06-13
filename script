@@ -1,0 +1,241 @@
+ map<String, Cydcor_ACI_Statistic__c> opyDateAciStatisticsMap = new map<String, Cydcor_ACI_Statistic__c>();
+    set<Id> optyIdSet = new set<Id>();
+    set<String> latestOSN = new set<String>();
+    list<String> rowStringList = new list<String>();
+    Datetime stateDate = DateTime.newInstance(Date.newInstance(2019, 4, 20),Time.newInstance(0,0,0,0));
+    Datetime endDate = DateTime.newInstance(Date.newInstance(2019, 4, 23),Time.newInstance(11,59,59,0));
+
+    String filename = 'DTV_'+String.valueOf(stateDate.date())+'_to_'+String.valueOf(endDate.date()) + '.csv';
+    String subject = 'Data Analysis ';
+    String body = ' \n Start Date: ' + String.valueOf(stateDate) + '\nEnd Date:' + String.valueOf(endDate);
+    body += '\n Add criteria logic here';
+    String[] recipients = new list<string> {'rajender.gottamukkula@cognizant.com','MDhingra@cydcor.com'};
+    
+    String pd_CreditBand = '';String pd_CreditClass = '';String pd_Type = '';String am_Code = '';String am_Message = '';String am_Severity = '';String pr_Code = '';String pr_Message = '';String pr_Type = '';String cc_ChoiceCode = '';String cc_USOC = '';String cc_PaymentType = '';String cc_Fee = '';String cc_FeeTerm = '';String RC1_Eligible = 'False'; String osNumber; String respCode=''; String respMessage = ''; String respType =''; String isLatestOSN = ''; String cc_advanceFee = ''; String cc_onetimeFee ='';
+    String prestring ='';
+
+    for(Cydcor_ACI_Statistic__c aciStatistic :[SELECT Id, Opportunity__c, CreatedDate, Opportunity__r.Name, Opportunity__r.StageName, Opportunity__r.Disposition__c, Opportunity__r.Order_Reference_Number__c, Opportunity__r.Credit_Check_Reference_Number__c, Opportunity__r.Credit_Band__c  FROM Cydcor_ACI_Statistic__c WHERE Client_Campaign__r.Name = 'DirecTV' AND CreatedDate  >= :stateDate AND CreatedDate <= :endDate AND Credit_Check__c >0 ]){
+        
+        if(optyIdSet.add(aciStatistic.Opportunity__c)){
+            
+        }else{
+//          system.debug(aciStatistic.Opportunity__c);
+        }
+//        System.debug(String.valueOf(aciStatistic.Opportunity__c)+'#'+String.valueOf(aciStatistic.CreatedDate.Date()));
+        opyDateAciStatisticsMap.put(String.valueOf(aciStatistic.Opportunity__c)+'#'+String.valueOf(aciStatistic.CreatedDate.Date()),aciStatistic);
+    }
+    System.debug('opyDateAciStatisticsMap-->'+opyDateAciStatisticsMap.size());
+    System.debug('optyIdSet-->'+optyIdSet.size());
+    map<String,list<OpportunityFieldHistory>> optyDateHistoriesMap = new map<String,list<OpportunityFieldHistory>>();
+    map<String, Cydcor_OrderStatusNotificationLog__c> optyDateOSN = new map<String, Cydcor_OrderStatusNotificationLog__c>();
+    map<String, Buyflow_State__c> optyDateBuyflow = new map<String, Buyflow_State__c>(); 
+    
+for(Opportunity optyRec :[SELECT Id, (SELECT Id, OSN_Content__c, OSN_Order_Number__c, OSN_Request_Type__c, CreatedDate FROM OSNLogs__r WHERE OSN_Request_Type__c = 'CREDITCHECK' ORDER BY CreatedDate DESC), (SELECT Id, LicenseExpirationDate__c, LicenseState__c, CreatedDate FROM Buyflow_States__r ORDER BY CreatedDate DESC), (SELECT CreatedDate,Field FROM Histories) FROM Opportunity WHERE
+        Id = :optyIdSet AND ICL__r.Is_Save_the_Sales_ICL__c = FALSE
+]) {
+    // Adding OSN
+    for (Cydcor_OrderStatusNotificationLog__c osnRec : optyRec.OSNLogs__r) {
+        if (optyDateOSN.containsKey( ((String.valueOf(optyRec.Id)) + '#' + String.valueOf(osnRec.CreatedDate.Date())) )) {
+            //Ignore records if OSN record already exists for the day.
+
+        } else {// Get the latest for the date OSN record.
+            optyDateOSN.put(String.valueOf(optyRec.Id) + '#' + String.valueOf(osnRec.CreatedDate.Date()), osnRec);
+        }
+    }
+// Adding Buyflow State
+    for(Buyflow_State__c buyFlowRec :optyRec.Buyflow_States__r) {
+        
+        if(optyDateBuyflow.containsKey((String.valueOf(optyRec.Id)) + '#' + String.valueOf(buyFlowRec.CreatedDate.Date()))) {
+        
+        }else {
+            optyDateBuyflow.put((String.valueOf(optyRec.Id)) + '#' + String.valueOf(buyFlowRec.CreatedDate.Date()),buyFlowRec);
+        }
+    }
+    
+    for (OpportunityFieldHistory optyFieldHistory : optyRec.Histories) {
+        if (optyDateHistoriesMap.containsKey((String.valueOf(optyRec.Id)) + '#' + String.valueOf(optyFieldHistory.CreatedDate.Date()))) {
+
+            optyDateHistoriesMap.get(String.valueOf(optyRec.Id) + '#' + String.valueOf(optyFieldHistory.CreatedDate.Date())).add(optyFieldHistory);
+        } else {
+            optyDateHistoriesMap.put(String.valueOf(optyRec.Id) + '#' + String.valueOf(optyFieldHistory.CreatedDate.Date()), new list<OpportunityFieldHistory>{
+                    optyFieldHistory
+            });
+        }
+
+    }
+}
+    String rowString ='';
+//system.debug('optyDateKey-->'+opyDateAciStatisticsMap);
+    for(String optyDateKey : opyDateAciStatisticsMap.keySet()) {
+//        system.debug('optyDateKey -->'+optyDateKey);
+        Cydcor_ACI_Statistic__c aciRecord = opyDateAciStatisticsMap.get(optyDateKey);
+        rowString += String.valueOf(aciRecord.CreatedDate.Date()).escapeCsv() +',';
+        rowString += String.valueOf(aciRecord.Opportunity__c).escapeCsv() +','; //Opportunity Id
+        rowString += String.valueOf(aciRecord.Opportunity__r.Name).escapeCsv() +','; // Opportunmity Name
+        rowString += String.valueOf(aciRecord.Opportunity__r.StageName).escapeCsv() +','; //Opportunity StageName
+        rowString += String.valueOf(aciRecord.Opportunity__r.Disposition__c) +','; //Opportunity Outcome
+        rowString += aciRecord.Opportunity__r.Order_Reference_Number__c ==null? '"",': String.valueOf(aciRecord.Opportunity__r.Order_Reference_Number__c).escapeCsv() +','; // Opportunity OSN#
+         
+        rowString += aciRecord.Opportunity__r.Credit_Check_Reference_Number__c == null? '"",' :String.valueOf(aciRecord.Opportunity__r.Credit_Check_Reference_Number__c).escapeCsv() +','; // Opportunity CC Ref NUmber
+        
+        rowString += aciRecord.Opportunity__r.Credit_Band__c==null ? '"",' :String.valueOf(aciRecord.Opportunity__r.Credit_Band__c).escapeCsv() +','; // Opportunity CC 
+        rowString += String.valueOf(aciRecord.Id).escapeCsv() +','; //ACI Id
+        
+        if(optyDateHistoriesMap.containsKey(optyDateKey)) {// Opportunity history exists for the day.
+            // Check if a record exists with Credit Check 
+//            else display a custom message that Credit check changes does not exists.
+            Boolean containsCCFieldHistory = false;
+            for(OpportunityFieldHistory ofhRec : optyDateHistoriesMap.get(optyDateKey)){
+//                system.debug('ofhRec-->'+ofhRec);
+                if(ofhRec.Field == 'Credit_Check_Reference_Number__c'){
+                    containsCCFieldHistory = true;
+                }
+            }
+            
+            if(containsCCFieldHistory){// If Credit Ref Number generated on the day of the ACI
+                rowString += '"TRUE",'; 
+            }else{
+                rowString += '"FALSE",';
+            }
+        }else{// Add a message that there is no History for the day
+            rowString += '"FALSE",';
+        }
+
+        if(optyDateBuyflow.containsKey(optyDateKey)) {// Set the Buyflow State exists flag to TRUE if Buyflow record exists for the day
+            Buyflow_State__c bfStateRec = optyDateBuyflow.get(optyDateKey);
+            rowString += '"TRUE",'; //Found latest Buyflow record for the day
+            
+            if(bfStateRec.LicenseExpirationDate__c != null || bfStateRec.LicenseState__c != null){
+                rowString += '"DL",'; //DL or SSN
+            }else{
+               rowString += '"SSN",'; //DL or SSN                
+            }
+
+        }else {// Set the Buyflow Exists flag to FALSE if OSN record exists for the day
+            rowString += '"FALSE",';
+            rowString += '"NA",'; //DL or SSN info not available 
+        }
+
+        if(optyDateOSN.containsKey(optyDateKey)) {// Set the OSN Exists flag to TRUE if OSN record exists for the day
+            rowString += String.valueOf(optyDateOSN.get(optyDateKey).Id).escapeCsv() + ',';
+
+                    Cydcor_STIV6DTO.ResponseBody response = (Cydcor_STIV6DTO.ResponseBody) JSON.deserialize(optyDateOSN.get(optyDateKey).OSN_Content__c, Cydcor_STIV6DTO.ResponseBody.class);
+            
+            rowString += response.RC1_Eligible =='N'?'"FALSE",':'"TRUE",';
+
+            if(response.CreditCustomizations!=null){
+                if(response.CreditCustomizations.size()>0){
+                    String advPay =''; String onePay ='';
+                    for(Cydcor_STIV6DTO.CreditCustomization ccRec :response.CreditCustomizations){
+                        
+                        for(Cydcor_STIV6DTO.Choice cRec :ccRec.Choices){
+                            if(cRec.PaymentType=='ADVANCED'){
+                                advPay = String.valueOf(cRec.Fee.Fee);
+                            }else if (cRec.PaymentType=='ONETIME'){
+                                onePay = String.valueOf(cRec.Fee.Fee);
+                            }
+                        }
+//                        system.debug('1');
+                    }
+                    rowString += onePay.escapeCsv() +','+ advPay.escapeCsv() +',';
+                    
+                }else{
+//                    system.debug('2');
+                    rowString += '" "," ",';
+                }
+            }else{
+//                system.debug('3');
+                rowString += '" "," ",';
+            }
+            
+            
+            if(response.ProductCreditDecisions !=null){
+                    if(response.ProductCreditDecisions.size()>0){
+                        //String creditBand ='';String creditclass ='';String creditType ='';
+                        String dtvBand = '';String dtvClass = ''; String intBand = '';String intClass = ''; String voipBand = '';String voipClass = '';
+                        for(Cydcor_STIV6DTO.ProductCreditDecision ccResp : response.ProductCreditDecisions){
+                            //creditBand += ccResp.CreditBand +';';
+                            //creditclass += ccResp.CreditClass +';';
+                            //creditType += ccResp.Type +';';
+                            
+                            if(ccResp.Type=='DTV'){
+                                dtvBand += ccResp.CreditBand ;
+                                dtvClass += ccResp.CreditClass;
+                            }else if(ccResp.Type=='INTERNET'){
+                                intBand += ccResp.CreditBand ;
+                                intClass += ccResp.CreditClass;
+                            }else if(ccResp.Type=='VOIP'){
+                                voipBand += ccResp.CreditBand;
+                                voipClass += ccResp.CreditClass;
+                            }
+                            
+                        }
+                        rowString += dtvBand +','+dtvClass+','+intBand+','+intClass+','+voipBand+','+voipClass+',';
+                        
+
+
+                        if(response.ResponseHeader.ProductResponses.size()>0){
+                            //String respCode='';String respMessage='';String respType='';
+                            string dtvRespCode=''; string intRespCode=''; string voiprespCode=''; String overallRrespCode ='';
+                            for(Cydcor_STIV6DTO.ProductResponse prodResp :response.ResponseHeader.ProductResponses){
+//                                respCode += prodResp.Code+';';
+//                                respMessage += prodResp.Message+';';
+//                                respType += prodResp.Type+';';
+                                if(prodResp.Type=='DTV'){
+                                    dtvRespCode += prodResp.Code;
+                                }else if(prodResp.Type=='INTERNET'){
+                                    intRespCode += prodResp.Code;
+                                }else if(prodResp.Type=='VOIP'){
+                                    voiprespCode += prodResp.Code;
+                                }else if(prodResp.Type=='OVERALL'){
+                                    overallRrespCode += prodResp.Code;
+                                }
+                            }
+                            //rowString += respCode.escapeCsv() + ',' + respType.escapeCsv()+','+ respMessage.escapeCsv() +',' +aoverallRrespCode + ',';
+                            rowString += dtvRespCode  + ',' + intRespCode  + ',' +voiprespCode  + ',' +overallRrespCode  + ',';
+                        }else{
+                            rowString += '" ", " ", " ", " "," ",';
+                        }
+
+                    }else{
+                        rowString += '" ", " ", " ", " ", " ", " ", " ", " ", " ", " ",';
+                    }
+                }else{
+                rowString += '" ", " ", " ", " ", " ", " ", " ", " ", " ", " ",';
+            }
+            
+
+
+        }else {// Set the OSN Exists flag to FALSE if OSN record exists for the day
+            rowString += '"",';
+            
+        }
+        rowStringList.add(rowString);
+        rowString = '';
+    }
+    for(String rowStringRec : rowStringList){  
+        prestring += rowStringRec+ '\n';
+        system.debug(prestring);
+    }
+
+
+    String csvHeader = 'CreatedDate, Opportunity Id, Opportunity Name, StageName, Outcome, Order Reference Number, Credit Check Reference Number, Credit Band, aci, CRN?, buyflow?, SSN/DL, OSN, RC1_Eligible?, ONETIME, ADVANCED, dtvBand ,dtvClass,intBand,intClass,voipBand,voipClass,dtvRespCode,intRespCode,voiprespCode,overallRrespCode';
+
+    String csvString = csvHeader + '\n';
+    csvString += prestring;
+    blob csv = Blob.valueOf(csvString);
+
+//Create Attachement
+
+    Messaging.EmailFileAttachment attachment = new Messaging.EmailFileAttachment();
+    attachment.setFileName(filename);
+    attachment.setBody(csv);
+
+//Send Email
+
+    Messaging.SingleEmailMessage email =new Messaging.SingleEmailMessage();
+    email.setSubject(subject);
+    email.setToAddresses(recipients);
+    email.setPlainTextBody(body);
+    email.setFileAttachments(new Messaging.EmailFileAttachment[]{attachment});
+    Messaging.SendEmailResult [] r = Messaging.sendEmail(new Messaging.SingleEmailMessage[] {email});
