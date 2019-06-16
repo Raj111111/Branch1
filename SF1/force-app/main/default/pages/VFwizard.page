@@ -1,0 +1,17 @@
+<apex:page controller="NewOpportunityController" tabStyle="Opportunity">
+ <apex:sectionHeader title="New Customer Opportunity" subtitle="page 1 to 3"/>
+ 
+<apex:form >
+    <apex:pageBlock title="Customer Information">
+        <apex:facet name="footer">
+        <apex:commandButton value="Next" action="{!page2}" styleClass="btn"/>
+    
+        </apex:facet>
+    <apex:pageblockSection >
+        
+        
+        </apex:pageblockSection>
+    </apex:pageBlock>
+
+</apex:form>
+</apex:page>

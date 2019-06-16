@@ -1,0 +1,157 @@
+<apex:page standardcontroller="opportunity" extensions="pdfController" applyBodyTag="false"
+    docType="html-5.0" showHeader="false" standardStylesheets="false" renderAs="PDF" action="{!PDFMethod}">
+    <apex:form >
+        <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            lang="en">
+        <apex:outputPanel rendered="{!IF(opp.recordTypeId == '012f10000019VrbAAE',true,false)}">
+            <table style="height: 140px; width= 741; background-color:#adc2eb;border:1pt solid black;">
+                <tbody>
+                    <tr style="height: 68px; ">
+                        <td style="width: 731px; text-align: center; height: 68px;">
+                            <p>
+                                <h3>THOMASPARTNERS INVESTMENT MANAGEMENT<br/>ANNUAL REVIEW</h3>
+                            </p>
+                            <p style="text-align: left;">
+                                <strong>&nbsp; HOUSEHOLD: </strong> &nbsp;
+                                <apex:outputField value="{!opp.name}" /> <br/> <br/>
+                                <strong>&nbsp; TODAY’S DATE: </strong> &nbsp;
+                                <apex:outputField value="{!opp.name}" />
+                            </p>
+                            <!-- inputSecret<p style="text-align: left;"><strong>&nbsp; Input field :</strong><apex:outputField value="{!opp.Amount}"/></p>-->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p> <strong>Has anything in your life changed that impacts your financial situation, investment objectives or income needs?</strong></p>
+            <table style="height: 140px; width= 741px; border:1pt solid black;">
+                <tbody>
+                    <tr>
+                        <td style="width: 731px; text-align: center; height: 68px;">
+                            <br/>
+                            <apex:outputField value="{!opp.Description}" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>
+                Planned retirement age:&nbsp;Client1 &nbsp;<u><apex:outputField value="{!opp.stagename}"/></u>&nbsp;Client2
+                &nbsp;
+                <u><apex:outputField value="{!opp.stagename}"/></u>
+            </p>
+            <p>
+                Current portfolio income need:&nbsp;<u><apex:outputField value="{!opp.stagename}"/></u>
+            </p>
+            <p>
+                Current Investment Time Horizon: &nbsp;<u><apex:outputField value="{!opp.stagename}"/></u>
+            </p>
+            <p>
+                Other Pertinent Retirement or Income Need Notes:&nbsp;<u><apex:outputField value="{!opp.stagename}"/></u>
+            </p>
+
+            <p>
+                <strong><u>ASSET ALLOCATION</u></strong>
+            </p>
+
+            <table border="1" cellpadding="0" width="100%">
+                <tbody>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;Current TPI Allocation:</td>
+                        <td>&nbsp;Proposed/Revised TPI Allocation</td>
+                    </tr>
+                    <tr>
+                        <td>EQUITIES</td>
+                        <td>&nbsp;
+
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>FIXED INCOME</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>CASH</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="color: red;"> Margin on Account(s)?&nbsp;YES / NO &nbsp;&nbsp;&nbsp;
+                <p>
+                    <apex:outputField value="{!opp.IsPrivate}" />&nbsp;If Yes, CPM discussed with Client </p>
+            </p>
+
+            <table style="height: 140px;" width="741; border:1pt solid black;">
+                <tbody>
+                    <tr>
+                        <td style="width: 731px; text-align: center; height: 68px;">
+                            <br/>
+                            <apex:outputField value="{!opp.Description}" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br/>
+            <table style="height: 200px;" width="741; border:1pt solid black;">
+                <tbody>
+                    <tr>
+                        <td style="width: 731px; text-align: center; height: 68px;">
+                            <br/>
+                            <apex:outputField value="{!opp.Description}" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br/>
+            <table style="height: 300px;" width="741; border:1pt solid black;">
+                <tbody>
+                    <tr>
+                        <td class="tdBox">
+                            <br/>
+                            <apex:outputField value="{!opp.Description}" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br/>
+        </apex:outputPanel>
+
+        </html>
+        <style>
+            .border_table {
+                border: 1px solid black;
+            }
+
+        </style>
+
+    </apex:form>
+
+</apex:page>
+
+
+
+<!-----------------------------------------------------
+                
+                    Opportunity Amount :        <apex:outputField value="{!opp.Amount}"/> <br/>
+                Opportunity Description : <br/> <apex:outputField value="{!opp.Description}"/> <br/>
+                    Opportunity StageName :     <apex:outputField value="{!opp.StageName}"/> <br/>
+                    Opportunity Name :          <apex:outputField value="{!opp.Name}"/> <br/>
+-->
+
+<!--sales = '012f10000019VrWAAU' and Service = '012f10000019VrbAAE' -->
+<!--     
+           
+          
+        
+<div id="B2" rendered="{!IF(opp.recordTypeId == '012f10000019VrWAAU',true,false)}">    
+                    Opportunity Probability :   <apex:outputField value="{!opp.Probability}"/> <br/>
+                    Opportunity Expect Revenue: <apex:outputField value="{!opp.ExpectedRevenue}"/> <br/>
+                    Opportunity IsClosed ? :    <apex:outputField value="{!opp.IsClosed}"/> 
+</div>
+   
+
+  -->

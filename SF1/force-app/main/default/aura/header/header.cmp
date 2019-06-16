@@ -1,0 +1,30 @@
+<aura:component >
+    <aura:attribute name="header" type="string" default="Search contacts"/>
+    <aura:attribute name="footer" type="string" default="Check your contacts"/>
+    
+    <div class="slds-p-around_small">
+                <div class="slds-page-header " style="background-color: Green">
+                    <div class="slds-page-header__row ">
+                        <div class="slds-page-header__col-title">
+                            <div class="slds-media">
+                                <div class="slds-media__figure">
+                                    <span class="slds-icon_container slds-icon-standard-opportunity" title="Contact">
+                                        <span class="slds-assistive-text">Contact</span>
+                                    </span>
+                                </div>
+                                <div class="slds-media__body">
+                                    <div class="slds-page-header__name">
+                                        <div class="slds-page-header__name-title">
+                                            <h3>
+                                                <span class="slds-page-header__title slds-truncate" style="color:blue">{!v.header}</span>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <p class="slds-page-header__name-meta">{!v.footer}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</aura:component>

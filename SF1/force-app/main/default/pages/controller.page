@@ -1,0 +1,11 @@
+<apex:page controller="controllerclass" sidebar="false" showHeader="false">
+<apex:form >
+{!M}
+  <apex:pageBlock title="pageBlock" id="idd">
+  <!--<apex:pageBlockSection title="pagetable">-->
+   <apex:commandButton value="show" action="{!buttongetrecord}"/><br/>
+   
+  <!--</apex:pageBlockSection>-->
+  </apex:pageBlock>
+</apex:form>
+</apex:page>

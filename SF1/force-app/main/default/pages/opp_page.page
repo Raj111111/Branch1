@@ -1,0 +1,18 @@
+<apex:page controller="wizard" sidebar="false" showHeader="false">
+<apex:form >
+ <apex:pageBlock title="Raj opportunity">
+  <apex:pageBlockSection title="Page section" columns="2">
+      <apex:inputField value="{!o.name}"/>
+      <apex:inputField value="{!o.Type}"/>
+      <apex:inputField value="{!o.CloseDate}"/>
+      <apex:inputField value="{!o.StageName}"/>
+      <apex:inputField value="{!o.Reason__c}"/>
+          
+          <apex:commandButton value="Next Page" action="{!saveall_page}"/><br/>
+          <apex:commandButton value=" pevious" action="{!opp_page}"/>
+   
+  </apex:pageBlockSection>
+ </apex:pageBlock>
+</apex:form>
+  
+</apex:page>

@@ -1,0 +1,41 @@
+<apex:page standardController="Account" extensions="TabPanelController">
+<apex:tabPanel switchType="client" id="tabpanelId" tabClass="activeTab" inactiveTabClass="inactiveTab">
+    <apex:tab label="firstTab" id="tabId" name="myfirstTab" labelWidth="200">
+     <apex:image id="theImage" value="https://www.google.com/logos/doodles/2015/veterans-day-2015-5639245909721088-hp.jpg" width="320" height="400"/>
+    </apex:tab>
+    <apex:tab title="secondTab" label="seconTab" name="second" id="secondId" labelWidth="200">
+        <apex:form >
+            <apex:pageBlock title="pageBlck">
+                <apex:pageBlockButtons location="top">
+                <apex:commandButton action="{!savemethod}" value="save" />
+                    </apex:pageBlockButtons>
+                <apex:pageBlockSection title="pageblock section" id="sectionID">
+   				 <apex:pageBlockTable value="{!a}" var="a1">
+                    <apex:column headerValue="firstcolumn" value="{!a1.name}"/>
+                    <apex:column headerValue="secondcolumn" value="{!a1.phone}"/>
+                    <apex:column headerValue="Thirdcolumn" value="{!a1.fax}"/>
+                  </apex:pageBlockTable>
+                 </apex:pageBlockSection>
+                    
+            </apex:pageBlock>
+        </apex:form>
+    </apex:tab>
+    <apex:tab title="third" label="thirdTab" labelWidth="200" >
+        <apex:form >
+        <apex:pageBlock title="page" >
+            <apex:panelGroup >
+            <apex:outputLabel for="searchthis"> search </apex:outputLabel>
+           <apex:inputText title="search" value="{!search}"/>
+            <apex:commandButton action="{!find}" value="find"/>
+                </apex:panelGroup>
+          </apex:pageBlock>
+            <apex:pageBlock >
+               <apex:pageBlockTable value="{!result}" var="v" rendered="{!NOT(ISNULL(result))}">
+                   <apex:column headerValue="name" value="{!v.name}"/>
+               </apex:pageBlockTable>
+           
+        </apex:pageBlock>
+            </apex:form>
+    </apex:tab>
+</apex:tabPanel>    
+</apex:page>

@@ -1,0 +1,15 @@
+<aura:component controller = "OpenCasesApexController">
+    
+    <aura:attribute name="cases" type="case[]"/>
+    <!--this fires when the component initialize-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+   
+    <div>
+    	<aura:iteration items="{!v.cases}" var="case">
+    	<!--Output -->
+        <force:recordview record="{!case}" />
+    	</aura:iteration>
+    </div>
+    
+    
+</aura:component>

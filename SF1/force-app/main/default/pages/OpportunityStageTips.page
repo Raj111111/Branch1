@@ -1,0 +1,20 @@
+<apex:page standardController="opportunity" title="Stage Name" >
+    <apex:form >
+        status Here : 
+        <apex:outputpanel rendered="{!opportunity.stagename == 'Prospecting'}">
+            Tips for prospecting
+        </apex:outputpanel>
+        
+                <apex:outputpanel rendered="{!opportunity.stagename == 'Needs Analysis'}">
+            Tips for Needs Analysis
+        </apex:outputpanel>
+        
+                <apex:outputpanel rendered="{!opportunity.stagename == 'Proposal/Price Quote'}">
+            Tips for Proposal/Price Quote
+        </apex:outputpanel>
+        
+                <apex:outputpanel rendered="{!opportunity.stagename == 'Negotiation/Review'}">
+            Tips for Negotiation/Review
+        </apex:outputpanel>      
+    </apex:form>
+</apex:page>

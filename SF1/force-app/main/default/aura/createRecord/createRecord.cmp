@@ -1,0 +1,31 @@
+<aura:component controller="Aura_controllerClass">
+    
+     <aura:attribute name="accountId" type="string" />
+    <aura:attribute name="simpleNewContact" type="Contact" default="{sobjectName : 'contact',
+                                                                    FirstName : '',
+                                                                     LastName : '',
+                                                                     	Phone : '',
+                                                                     	Email : ''
+                                                                    }" />
+   
+    
+    
+    <lightning:card>
+        <div class="dark-background">
+            <div class="slds-p-around_x-small">
+                <lightning:dynamicIcon type="trend" option="down" alternativeText="Trending down"/>
+                <h4>Create Contact</h4>
+                <lightning:icon iconName="utility:connected_apps" alternativeText="Connected" size="large"/>
+            </div>
+        </div>
+        <div class="slds-p-around_x-small">
+            <lightning:input aura:id ="contactField" type="Text" name="Last" label="Last Name" value="{!v.simpleNewContact.Lastname}" required="true"/>
+            <lightning:input aura:id ="contactField" type="Text" name="First" label="First Name" value="{!v.simpleNewContact.FirstName}"/>
+            <lightning:input aura:id ="contactField" type="Phone" name="Phone" label="Phone" value="{!v.simpleNewContact.phone}"/>
+            <lightning:input aura:id ="contactField" type="Email" name="Email" label="Email" value="{!v.simpleNewContact.Email}"/>
+            <br/>
+            <lightning:button variant="success" label="Save conatct" onclick="{!c.createRecords}"/> <!--onclick="{!c.createRecord}" -->
+        </div>    
+    </lightning:card>
+    
+</aura:component>

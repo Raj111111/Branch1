@@ -1,0 +1,12 @@
+<apex:page standardController="Account" recordSetVar="accounts">
+    <apex:pageBlock title="Accounts  List" id="render">
+        
+        <!-- Contacts List -->
+        <apex:repeat value="{!accounts}" var="a" rendered="true" >      
+                 <li>
+                <apex:outputLink value="/{!a.id}"> {!a.Name} </apex:outputLink>
+                </li>        
+        </apex:repeat>
+            <apex:image url="{!URLFOR($Resource.vfimagetest, 'cats/kitten1.jpg')}" />
+    </apex:pageBlock>
+</apex:page>

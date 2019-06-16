@@ -1,0 +1,9 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction,force:hasRecordId"
+    controller="Lightning_opportunityController">
+    <aura:attribute name="listName" type="String[]" default="['cyan','yellow','magenta']"
+    />
+    <aura:iteration items="{!v.listName}" Var="S">
+        Value: {!S}<br/>
+    </aura:iteration>
+    <Lightning:Button onclick="{!c.getValues}" label="update" />
+</aura:component>

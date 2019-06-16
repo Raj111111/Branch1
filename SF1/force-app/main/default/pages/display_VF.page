@@ -1,0 +1,17 @@
+<apex:page standardcontroller="Account" extensions="displayfields">
+<apex:form >
+ <apex:pageblock title=" BLOCK">
+ <apex:pageblockSection title=" Account Contacts">
+    <apex:pageblockTable value="{!c}" var="cc">
+    
+    <apex:column value="{!cc.name}" headerValue="CONTACT"/>
+
+    <apex:column value="{!cc.phone}" headerValue="PHONE"/>
+<apex:column value="{!cc.email}" headerValue="EMAIL"/>
+<apex:column value="{!cc.AccountNumber__c}" headerValue="ACCT NO#"/>  
+<apex:column value="{!cc.id}" headerValue="ID"/>  
+    </apex:pageblockTable> 
+    </apex:pageblockSection>
+ </apex:pageblock>
+</apex:form>
+</apex:page>

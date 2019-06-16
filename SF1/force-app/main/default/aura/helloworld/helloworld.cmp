@@ -1,0 +1,5 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" access="global" >
+    <aura:attribute name= "cid" type ="contact"/> 
+    <aura:handler name="init" Value="{!this}" action="{!c.doInit}" />
+    <p> this is the recordID {!v.cid}</p>
+</aura:component>

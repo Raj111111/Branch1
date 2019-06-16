@@ -1,0 +1,20 @@
+<apex:page controller="wizard" sidebar="false" showHeader="false">
+<apex:form >
+ <apex:pageBlock title="Raj Account" >
+  <apex:pageBlockSection title="Page section" columns="1">
+      <apex:inputField value="{!a.name}"   required="true"/>
+      <apex:inputField value="{!a.phone}"  required="true"/>
+      <apex:inputField value="{!a.fax}"    required="true"/>
+      <apex:inputField value="{!a.Rating}" required="true"/>
+          <apex:commandButton value="Next Page" action="{!contact_page}"/>
+   
+  </apex:pageBlockSection>
+ </apex:pageBlock>
+</apex:form>
+  <style>
+  .new{
+      color = red;
+      
+  }
+  </style>
+</apex:page>

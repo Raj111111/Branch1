@@ -1,0 +1,24 @@
+<apex:page standardController="Account">
+<apex:pageMessage severity="info" strength="2" escape="false" summary="Info. from raj" detail="Yes details" rendered="false"/>
+     <apex:pageBlock title="Contacts">
+         <apex:dataTable value="{!account.Contacts}" var="contact" cellPadding="14" border="10">
+             <apex:column >
+                 <apex:facet name="footer">fax number</apex:facet>
+                        <strong> {!contact.Name} </strong>
+             </apex:column>
+             <apex:column >
+                 <apex:facet name="header">Phone</apex:facet>
+                         {!contact.Phone}
+             </apex:column>
+         </apex:dataTable>
+       <!--  <apex:iframe src="designmysystem-dev-ed--c.na16.visual.force.com/apex/apartmentpage?id=001j000000ms8i6" scrolling="true" title="page" width="20%" height="30%"/>-->
+     </apex:pageBlock>
+     <apex:outputText value="Sample Toolbar"/>
+     <apex:outputLink value="http://google.com/search?q={!Account.name}" target="_blank">
+        Search Google
+        <!-- OR
+        <apex:param name="q" value="{!Account.name}"/> 
+        -->
+    </apex:outputLink>
+ 
+ </apex:page>

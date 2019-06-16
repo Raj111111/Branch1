@@ -1,0 +1,20 @@
+<aura:component controller="Aura_controllerClass" implements="flexipage:availableForAllPageTypes,force:hasRecordId" >
+    <aura:attribute name="ListOfContacts" type="contact[]"/>
+    <aura:handler name="init" action="{!c.onRender}" value="{!this}"/>
+    <!--  <div class="slds-truncate" title="Adam Choi" >	-->
+    
+    <aura:iteration items="{!v.ListOfContacts}" var="Cons">
+        <lightning:card  title="Contact" iconName="standard:account">
+            <h3> Here are the Iterated Conatcts</h3>
+            Name      :  {!Cons.Name}
+            First Name :  {!Cons.FirstName} 
+            Last  Name :  {!Cons.LastName} 
+            Email 	   :  {!Cons.Email} 
+            Phone      :  {!Cons.Phone}
+            <aura:set attribute="actions">
+                <lightning:button variant="brand" label="show contact" />
+            </aura:set>
+        </lightning:card>  
+    </aura:iteration>
+    <!-- <lightning:button variant="brand" label="show contact" onclick="{!c.onRender}"/> -->
+</aura:component>

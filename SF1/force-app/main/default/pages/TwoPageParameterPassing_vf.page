@@ -1,0 +1,70 @@
+<apex:page controller="passing_parameters"  showHeader="false" standardStylesheets="false" doctype="html-5.0" id="page1">
+    <style>
+        section1{background-color:light-blue;}
+    </style>
+    <apex:image url="{!URLFOR($Resource.bird_logo)}" alt="logo" width="50" height="50" style="margin-left:50%;margin-bottom:-2%;"/>
+  <apex:outputLabel value="Raj" style="text-align:center; color: red; font-weight: bold;">
+    </apex:outputLabel>
+    <hr/>
+    <apex:form id="formId">
+        <apex:pageBlock id="Block1" title="Block1">
+           <apex:messages /> 
+            <hr/>
+            <apex:pageBlockSection id="section1" title="section1" columns="1" >
+                <apex:pageBlockSectionItem id="sectionItem1">
+                    <apex:outputLabel value="Name : " for="Name"/>
+                    <apex:input type="text" title="First Name" value="{!CName}" id="Name" required="true"/>
+                </apex:pageBlockSectionItem><br/>
+                <apex:pageBlockSectionItem id="sectionItem2">
+                    <apex:outputLabel value="phone : " for="Phone"/>
+                    <apex:input type="text" title="phone" value="{!Cphone}" html-min="1" html-max="100" html-step="1" id="Phone" required="true"/>
+                </apex:pageBlockSectionItem><br/>
+                <apex:pageBlockSectionItem id="sectionItem3">
+                    <apex:outputLabel value="User : " for="User"/>
+                    <apex:input type="text" title="User" id="user" value="{!CUser}" required="true"/>
+                </apex:pageBlockSectionItem><br/>
+                <apex:pageBlockSectionitem id="sectionItem4">
+                    <apex:outputLabel value="password : " for="password"/>
+                    <apex:input type="text" title="password" id="password" value="{!Cpassword}" />
+                </apex:pageBlockSectionitem><br/>  
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+             <apex:commandButton value="Submit" title="Submit" action="{!saving}" onclick="validatePage1()" status="statusId"/>
+          <!--      
+            <apex:actionStatus id="statusId">
+                <apex:facet name="start" >
+            	<img src="/img/loading.gif" />
+                </apex:facet>
+            </apex:actionStatus>-->
+                </apex:pageBlockButtons>
+        </apex:pageBlock>
+      
+    </apex:form>
+    <script type = "Text/javaScript">
+     function validatePage1(){
+         
+         var NameValid = document.getElementById('{!$Component.page1.formId.Block1.section1.sectionItem1.Name}').value;
+         var phonValid = document.getElementById('{!$Component.page1.formId.Block1.section1.sectionItem2.phone}').value;
+         var userValid = document.getElementById('{!$Component.page1.formId.Block1.section1.sectionItem3.user}').value;
+         var passvalid = document.getElementById('{!$Component.page1.formId.Block1.section1.sectionItem4.password}').value;
+            if(NameValid == "null" || NameValid = ''){
+                alert('Please fill the values');
+                Document.getElementById('Name').focus();
+                return false;
+         }else if(phonValid == "null" || phonValid == ''){
+                alert('Please fill the values');
+                Document.getElementById('phone').focus();
+                return false;
+         }else if(passvalid == "null" || passvalid == ''){
+                alert('Please fill the values');
+                Document.getElementById('password').focus();
+                return false;
+         }else if(userValid == "null" || userValid == ''){
+                alert('Please fill the values');
+                Document.getElementById('User').focus();
+                return false;
+         }else{
+             return true;
+             }
+    </script>
+</apex:page>

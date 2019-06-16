@@ -1,0 +1,31 @@
+<aura:component controller="Aura_controllerClass" implements="flexipage:availableForAllPageTypes,force:hasRecordId" >
+    <aura:attribute name="ListOfContacts" type="contact[]"/>
+    <aura:handler name="init" action="{!c.onRender}" value="{!this}"/>
+    <!--  <div class="slds-truncate" title="Adam Choi" >	-->
+    <div class="slds-p-around_small">
+    	<c:createRecord accountId="{!v.recordId}"/>
+    </div>
+    <div class="slds-p-around_small">
+        <div class="slds-grid slds-wrap">
+            <aura:iteration items="{!v.ListOfContacts}" var="Cons">
+                <div class="slds-col slds-size_1-of-2 slds-p-around_small">
+                    <lightning:card  title="Contact" iconName="standard:account">
+                        <p class = "slds-p-horizontal_small">
+                            Name       :  {!Cons.Name}<br/>
+                            First Name :  {!Cons.FirstName} <br/>
+                            Last  Name :  {!Cons.LastName} <br/>
+                            Email 	   :  {!Cons.Email} <br/>
+                            Phone      :  {!Cons.Phone}
+                        </p>   
+                        <aura:set attribute="actions">
+                            <lightning:button name="{!Cons.Id}" variant="brand" label="show contact" onclick="{!c.Redirect}"/>
+                        </aura:set>
+                    </lightning:card>  
+                </div>
+                
+            </aura:iteration>
+        </div>
+        
+    </div>
+    <!-- <lightning:button variant="brand" label="show contact" onclick="{!c.onRender}"/> -->
+</aura:component>

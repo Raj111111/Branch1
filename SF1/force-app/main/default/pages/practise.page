@@ -1,0 +1,99 @@
+<apex:page standardController="opportunity" renderAs="PDF">
+    
+    
+--------------------------------------------------------------------------------------------------
+  
+    
+   
+    <table border="1" cellpadding="6" width="100%">
+        <tr>
+            <td >&nbsp;</td>
+            <td>&nbsp;Current TPI Allocation:</td>
+             <td >&nbsp;Proposed/Revised TPI Allocation</td>  
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+             <td >&nbsp;Current TPI Allocation:</td>
+              <td >&nbsp;Proposed/Revised TPI Allocation</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td >&nbsp;Current TPI Allocation:</td>
+          <td >&nbsp;Proposed/Revised TPI Allocation</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td >&nbsp;Current TPI Allocation:</td>
+          <td >&nbsp;Proposed/Revised TPI Allocation</td>
+        </tr>
+    </table>  
+    
+    <br/>
+    
+    <table border="1" cellpadding="6" width="100%">
+			<tbody>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;Current TPI Allocation:</td>
+                    <td>&nbsp;Proposed/Revised TPI Allocation</td>
+                </tr>
+                <tr>
+                    <td>EQUITIES</td>
+                    <td>&nbsp;
+                    	
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>FIXED INCOME</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>CASH</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+			</tbody>
+		</table>  
+    
+--------------------------------------------------------------------------------------------------
+    
+    
+<style type="text/css">
+    .outBorder
+    {
+        border:3px outset black;
+    }
+         
+    .divTable{
+	display: table;
+	width: 100%;
+}
+.divTableRow {
+	display: table-row;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+}
+.divTableCell, .divTableHead {
+	border: 1px solid #999999;
+	display: table-cell;
+	padding: 3px 10px;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+	font-weight: bold;
+}
+.divTableFoot {
+	background-color: #EEE;
+	display: table-footer-group;
+	font-weight: bold;
+}
+.divTableBody {
+	display: table-row-group;
+}
+</style>
+</apex:page>

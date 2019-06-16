@@ -1,0 +1,69 @@
+<aura:component >
+  <aura:attribute name="changeThings" type="string" default="default message" />
+  <aura:attribute name="columns" type="List"/>
+  <aura:attribute name="data" type="Object"/>
+    
+    <div class="slds-grid slds-wrap">
+  	<div class="slds-col slds-size_1-of-12">
+    	<span>1</span>
+  	</div>
+  	<div class="slds-col slds-size_1-of-12">
+    	<span>1</span>
+  	</div>
+  	<div class="slds-col slds-size_1-of-12">
+    	<span>1</span>
+  	</div>
+  	<div class="slds-col slds-size_1-of-12">
+    	<span>1</span>
+  	</div>
+  	<div class="slds-col slds-size_1-of-12">
+    	<span>1</span>
+  	</div>
+    </div>
+    
+    <div class="slds-col slds-size_11-of-18">
+    	<span>big block</span>
+  	</div>
+    
+     <div style="height: 300px">
+        <lightning:datatable
+                keyField="id"
+                data="{! v.data }"
+                columns="{! v.columns }"
+                hideCheckboxColumn="true"/>
+    </div>
+    
+  <div class="slds-brand-band slds-brand-band_large" description="table background color" style="background-color: hsl(0, 100%, 70%)">     
+   <table class="slds-table slds-table_col-bordered " id = "table color" style="background-color: hsl(0, 20%, 70%)">
+       <thead >
+           <tr class="slds-text-title_caps" >
+               <th scope="col">
+                   <div class="slds-truncate" title="Button" ><b>Search Here</b></div>
+               </th>
+               <th scope="col">
+                   <div class="slds-truncate" title="Account Name" ><b> Search button</b></div> <!-- style="background-color:rgb(255, 153, 51)" -->
+               </th> 
+           </tr>           
+       </thead>
+       <tbody>       
+          <tr>
+            <th scope="row" data-label="Name">
+                
+                	<b>Search: </b> 
+                <input type="text" placeholder="search" />
+                 
+            </th> 
+            <td data-label="Account Name">
+            	<lightning:button variant="success" label="Search" title="Destructive action" onclick="{!c.myAction}"/>
+            </td>
+          </tr>
+       </tbody>
+     </table> 
+ 	</div>  
+                <!-- Disable button> &nbsp;&nbsp;
+                    <lightning:button variant="brand" disabled="true"> Disabled Brand </lightning:button> -->
+    <br></br>
+    
+   
+
+</aura:component>

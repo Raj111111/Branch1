@@ -1,0 +1,16 @@
+<aura:component >
+    <aura:attribute name="contacts" type="SObject[]"/>
+    <aura:attribute name="search" type="string" Default="You are seeing the contacts after search"/>
+    <div >
+        <b style="color:Blue"> {!v.search}</b> 
+        <div class="slds-grid slds-wrap ">
+            <aura:iteration items="{!v.contacts}" var="con">
+                <div class="slds-col slds-size_1-of-4 slds-p-around_small">
+                    <lightning:card title="{!con.Title}" footer="{!con.Email}" iconName= "standard:contact" class="slds-theme_warning slds-theme_error">
+                     <p class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small"> {!con.LastName} - {!con.LastName}</p>                
+                    </lightning:card>          
+                </div>
+            </aura:iteration>    
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,9 @@
+<apex:page docType="html-5.0" standardController="contact">
+<apex:form > 
+    <apex:variable var="AssistantName" value="{!Contact.Assistantname}" />
+    <apex:variable var="AssistantPhone" value="{!Contact.AssistantPhone}" />
+    <p>Assistant : {!AssistantName}</p>
+    <p>Phone : <a href="tel:{!AssistantPhone}">{!AssistantPhone}</a></p>
+
+</apex:form>
+</apex:page>

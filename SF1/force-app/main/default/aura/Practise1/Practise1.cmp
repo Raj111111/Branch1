@@ -1,0 +1,18 @@
+<aura:component controller = "ContactSearch" >
+    <aura:attribute name="contactRecord" type="SObject[]"/>
+    <aura:handler name="searchEvent" event="c:searchEvent" action="{!c.doEventSearch}"/>
+    <div class="slds-box">
+        <c:header/>
+    </div>
+    <div class="slds-p-around_small">
+        <div class="slds-box">
+            <c:searchBar/>
+        </div>
+    </div>
+    <div class="slds-p-around_small">
+        <div >
+            <c:contactOutput contacts="{!v.contactRecord}"/>
+        </div>
+    </div>
+    
+</aura:component>

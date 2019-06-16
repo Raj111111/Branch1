@@ -1,0 +1,31 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:attribute name="contactDtails" type="contact"/>
+    <aura:attribute name="newContact" type="Object"/>
+    <aura:attribute name="simpleNewContact" type="Object"/>
+    <aura:attribute name="newContactError" type="String"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <force:recordData aura:id="contactRecordCreator" 
+                      layoutType="FULL"
+                      targetRecord="{!v.newContact}"
+                      targetFields="{!v.simpleNewContact}"
+                      targetError="{!v.newContactError}" />
+    <lightning:card>
+        <div class="dark-background">
+            <div class="slds-p-around_x-small">
+                <lightning:dynamicIcon type="trend" option="down" alternativeText="Trending down"/>
+                <h4>Create Contact</h4>
+                <lightning:icon iconName="utility:connected_apps" alternativeText="Connected" size="large"/>
+            </div>
+        </div>
+        <div class="slds-p-around_x-small">
+            <lightning:input aura:id ="contactField" type="Text" name="name" label="Name" value="{!v.simpleNewContact.name}" />
+            <lightning:input aura:id ="contactField" type="Date" name="input1" label="Date" value="{!v.simpleNewContact.date}"/>
+            <lightning:input aura:id ="contactField" type="Phone" name="input1" label="Phone" value="{!v.simpleNewContact.phone}"/>
+            <lightning:input aura:id ="contactField" type="Emsil" name="input1" label="Email" value="{!v.simpleNewContact.Email}"/>
+            <br/>
+            <lightning:button variant="success" label="Save conatct" onclick="{!c.createRecord}"/>
+        </div>    
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,19 @@
+<apex:page controller="cuscont" extensions="EX1">
+  
+  <apex:form >
+  <apex:pageBlock title=" Top">
+ <apex:pageBlockSection title="bottom">
+ 
+  
+  enter a number <apex:inputText value="{!number1}"/> <br/> 
+  enter a number <apex:inputText value="{!number2}"/> <br/>
+  <apex:commandButton value="save" action="{!save}"/><br/>
+  result add number <apex:inputText value="{!resu}" /> <br/>
+  <apex:outputText value="{!status}">
+  </apex:outputText>
+  
+   </apex:pageBlockSection>
+ </apex:pageBlock>
+  
+  </apex:form>
+</apex:page>

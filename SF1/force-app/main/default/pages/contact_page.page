@@ -1,0 +1,15 @@
+<apex:page controller="wizard" sidebar="false" showHeader="false">
+<apex:form >
+ <apex:pageBlock title="Raj contact">
+  <apex:pageBlockSection title="Page section" columns="2">
+      <apex:inputField value="{!c.firstname}"/>
+      <apex:inputField value="{!c.LastName}"/>
+      <apex:inputField value="{!c.Phone}"/>
+      <apex:inputField value="{!c.Email}"/>
+          <apex:commandButton value="Next Page" action="{!opp_page}"/>
+   
+  </apex:pageBlockSection>
+ </apex:pageBlock>
+</apex:form>
+  
+</apex:page>

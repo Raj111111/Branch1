@@ -1,0 +1,29 @@
+<aura:component controller = "ContactController" implements = "force:hasRecordId,flexipage:availableForAllPageTypes" >
+    <aura:attribute name="contacts" type="contact[]"/>
+    <aura:handler name = "init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:iteration items="{!v.contacts}" var="con" >
+        <div class="slds-p-around_small">
+            <lightning:card variant="Narrow" title="{!con.name}" iconName="standard:account"> 
+                <!--this is used to to permorm "onclick action"-->
+                <aura:set attribute="actions">      
+                    <lightning:button name="{!con.Id}" label="Go to Contact" onclick="{!c.goToRecord}"/>
+                </aura:set>
+                <!-- this is used to to permorm "footer email"-->
+                <aura:set attribute="footer">        
+                    <lightning:badge label="{!con.email}"/>
+                </aura:set>
+                <!--Display the phone and MailingStreet field values of the contact-->
+                <p class="slds-p-horizontal_small">
+                    {!con.LastName}<br/>
+                    {!con.Phone}
+                </p>
+                <p class="slds-p-horizontal_small">
+                    {!con.MailingStreet} <br/>
+                    {!con.Account.name}
+                </p>
+                
+            </lightning:card>
+        </div>
+    </aura:iteration>
+</aura:component>

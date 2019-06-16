@@ -1,0 +1,45 @@
+<aura:component>
+   <div class="slds-m-around--medium">
+		<section id="accordion">
+		<div>	
+			<input type="radio" checked="checked" name="accordion-role" id="colorId" />
+			<label for="colorId">Color Names</label>
+		       <article>
+                  <div class="slds-p-around--medium">
+					<ol>
+                       <li>Red</li>
+                       <li>Blue</li>
+                       <li>Green</li>
+                    </ol>
+                   </div>     
+				</article>
+			</div>
+			<div>
+				<input type="radio" name="accordion-role" id="animalId" />
+				<label for="animalId">Animals Name</label>
+				<article>
+                  <div class="slds-p-around--medium">
+					<ol>
+                       <li>Tiger</li>
+                       <li>Dog</li>
+                       <li>cat</li>
+                    </ol>
+                  </div>    
+				</article>
+			</div>
+			<div>
+				<input type="radio" name="accordion-role" id="fruitsId" />
+				<label for="fruitsId">Fruits Name</label>
+				<article>
+                  <div class="slds-p-around--medium">                    
+					<ol>
+                       <li>Apple</li>
+                       <li>Banana</li>
+                       <li>Mango</li>
+                    </ol>
+                  </div>
+				</article>
+		   </div>
+		</section>
+     </div> 
+</aura:component>

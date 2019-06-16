@@ -1,0 +1,18 @@
+<apex:page standardController="Account" showHeader="false" sidebar="false" showChat="false">
+    <style>
+        .subSection
+        {
+            background-color: darkblue;
+            color: white;
+            font-family: cursive;
+            font-size: 18px;        
+        }
+    </style>
+    <table width="100%">
+        <tr>
+            <td class="subSection">
+                Most Difficult Aspects of Treatment
+            </td>
+        </tr>
+    </table>
+</apex:page>

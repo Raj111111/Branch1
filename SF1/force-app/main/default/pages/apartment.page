@@ -1,0 +1,8 @@
+<apex:page controller="controllerclass"><br/>
+<!--this psge is related to other page controller named-->
+
+hai 
+  {!acc.name}<br/>
+   {!acc.phone}<br/>
+   {!acc.shippingcity}<br/>
+</apex:page>

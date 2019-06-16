@@ -1,0 +1,14 @@
+<apex:page controller="ActionSupport_Calss" id="pageId">
+    <apex:form id="formId">
+        <apex:outputpanel id="counter">
+            
+            <apex:outputText value="start count : {!count}" id="click"/>
+            <apex:actionSupport event="onclick" 
+                               action="{!incrementCounter}"
+                                rerender="counter" status="counterStatus"/>
+        </apex:outputpanel>
+        <apex:actionStatus id="counterStatus"
+                           startText=" (incrementing...)"
+                           stopText=" (done)"/>
+    </apex:form>
+</apex:page>

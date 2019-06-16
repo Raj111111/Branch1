@@ -1,0 +1,41 @@
+<aura:component >
+	<!--<ol>
+        <li>Bug Spray</li>
+        <li>Bear Repellant</li>
+        <li>Goat Food</li>
+    </ol>-->
+    <aura:attribute name="items" type="Camping_Item__c[]"/>
+    <aura:attribute name="newItem" type="Camping_Item__c" 
+                    default="{'sobjectType':'Camping_Item__c',
+                             'Name': '',
+                             'Price__c': 0,
+                             'Quantity__c': 0,
+                             'Packed__c': false}"/>
+    <aura:attribute name="er" type="boolean" default="false"/>
+
+    <c:campingHeader />
+    
+    <div aria-labelledby="newitemform">
+        <fieldset class="slds-box slds-theme--default slds-container--small">
+            <legend id="newitemform" class="slds-text-heading--small slds-p-vertical--medium">
+                Add item
+            </legend>
+            <form class="slds-form--stacked">
+                <lightning:input aura:id="itemForm" label="Item name" value="{!v.newItem.Name}" required="true" name="Item name"/>
+                <lightning:input aura:id="itemForm" label="Quantity" type="number" value="{!v.newItem.Quantity__c}" min="1" name="Quantity"/>
+                <lightning:input aura:id="itemForm" label="Price" type="number" formatter="currency" value="{!v.newItem.Price__c}" name="Price"/>
+                <lightning:input aura:id="itemForm" label="Packed?" type="checkbox" checked="{!v.newItem.Packed__c}" name="Packed"/>
+                <lightning:button label="Create item" class="slds-m-top--medium" variant="brand" onclick="{!c.clickCreateItem}"/>
+            </form>
+        </fieldset>
+    </div>
+    <div>
+        <lightning:card title="List Items">
+            <aura:iteration items="{!v.items}" var="itm">
+                <c:campingListItem item="{!itm}"/>
+            </aura:iteration>
+        </lightning:card>
+    </div>
+
+    
+</aura:component>
